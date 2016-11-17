@@ -247,6 +247,7 @@ class SGEBatchSystem(GenericBatchSystem):
 
     def _extract_queues(self, xpath, root):
         qstatq_list = []
+        anonymize = self.sge_stat_maker.anonymize_func()
         for queue_elem in root.findall(xpath):
 
             queue_names = queue_elem.findall('resource')
